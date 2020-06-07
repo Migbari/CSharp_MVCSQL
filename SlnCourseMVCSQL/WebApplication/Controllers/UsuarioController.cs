@@ -13,8 +13,12 @@ namespace WebApplication.Controllers
             var listaUsuario = appUsuario.ListarTodos();
             return View(listaUsuario);
         }
-        [HttpPost]
-        public ActionResult Cadastro(Usuario usuario)
+        public ActionResult Cadastro()
+        {
+            return View();
+        }
+       [HttpPost]
+       public ActionResult Cadastro(Usuario usuario)
         {
             if (ModelState.IsValid)
             {
