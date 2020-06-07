@@ -61,5 +61,23 @@ namespace WebApplication.Controllers
             }
             return View(usuario);
         }
+        public ActionResult Excluir(int id)
+        {
+            var appUsuario = new UsuarioAplicacao();
+            var usuario = appUsuario.ListarPorId(id);
+
+            if (usuario == null)
+            {
+                return HttpNotFound();
+            }
+            return View(usuario);
+        }
+        [HttpPost, ActionName ("Excluir")]
+        public ActionResult ExcluirConfirmado(int id)
+        {
+            var appUsuario = new UsuarioAplicacao();
+            appUsuario.Excluir(id);
+            return RedirectToAction("Inicial");
+        }
     }
 }
