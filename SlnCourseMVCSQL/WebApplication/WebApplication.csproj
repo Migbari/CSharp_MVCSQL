@@ -163,6 +163,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Usuario\Inicial.cshtml" />
     <Content Include="Views\Usuario\Cadastro.cshtml" />
+    <Content Include="Views\Usuario\Editar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

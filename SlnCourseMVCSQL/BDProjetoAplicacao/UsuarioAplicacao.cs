@@ -3,6 +3,7 @@ using BDProjetoRepositorio;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Linq;
 
 namespace BDProjetoAplicacao
 {
@@ -20,7 +21,7 @@ namespace BDProjetoAplicacao
                 inicial.ExecutaComando(strQuery);
             }
         }
-        private void Alterar(Usuario usuario)
+        public void Alterar(Usuario usuario)
         {
             var strQuery = "";
             strQuery += "UPDATE Usuario SET ";
@@ -54,12 +55,21 @@ namespace BDProjetoAplicacao
             }
         }
         public List<Usuario> ListarTodos()
-        { 
-            using (inicial = new DBConexao ())
+        {
+            using (inicial = new DBConexao())
             {
                 var strQuery = "SELECT * FROM Usuario";
                 var retorno = inicial.ExecutaComandoRetorno(strQuery);
                 return ReaderEmLista(retorno);
+            }
+        }
+        public Usuario ListarPorId(int id)
+        {
+            using (inicial = new DBConexao())
+            {
+                var strQuery = string.Format("SELECT * FROM Usuario WHERE Id = {0}", id);
+                var retorno = inicial.ExecutaComandoRetorno(strQuery);
+                return ReaderEmLista(retorno).FirstOrDefault();
             }
         }
         private List<Usuario>ReaderEmLista(SqlDataReader reader)

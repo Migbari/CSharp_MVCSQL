@@ -28,5 +28,27 @@ namespace WebApplication.Controllers
             }
             return View(usuario);
         }
+        public ActionResult Editar(int id)
+        {
+            var appUsuario = new UsuarioAplicacao();
+            var usuario = appUsuario.ListarPorId(id);
+
+            if (usuario == null)
+            {
+                return HttpNotFound();
+            }
+            return View(usuario);
+        }
+        [HttpPost]
+        public ActionResult Editar(Usuario usuario)
+        {
+            if (ModelState.IsValid)
+            {
+                var appUsuario = new UsuarioAplicacao();
+                appUsuario.Salvar(usuario);
+                return RedirectToAction("Inicial");
+            }
+            return View(usuario);
+        }
     }
 }
