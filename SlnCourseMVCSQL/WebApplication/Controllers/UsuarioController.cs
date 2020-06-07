@@ -50,5 +50,16 @@ namespace WebApplication.Controllers
             }
             return View(usuario);
         }
+        public ActionResult Detalhes(int id)
+        {
+            var appUsuario = new UsuarioAplicacao();
+            var usuario = appUsuario.ListarPorId(id);
+
+            if (usuario == null)
+            {
+                return HttpNotFound();
+            }
+            return View(usuario);
+        }
     }
 }
