@@ -45,9 +45,9 @@
     <Compile Include="UsuarioAplicacao.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BDInicialRepositorio\BDProjetoRepositorio.csproj">
+    <ProjectReference Include="..\BDInicialRepositorio\BDProjetoRepositorioADO.csproj">
       <Project>{B209C370-0D8E-4907-8455-30B689847F78}</Project>
-      <Name>BDProjetoRepositorio</Name>
+      <Name>BDProjetoRepositorioADO</Name>
     </ProjectReference>
     <ProjectReference Include="..\BDProjetoDominio\BDProjetoDominio.csproj">
       <Project>{1028D778-94FF-42E3-8DF2-A11031907715}</Project>

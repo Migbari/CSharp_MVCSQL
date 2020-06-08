@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleMVCSQL", "ConsoleMVCSQL\ConsoleMVCSQL.csproj", "{DA711DE1-5178-428B-9CB6-B616237E13B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BDProjetoRepositorio", "BDInicialRepositorio\BDProjetoRepositorio.csproj", "{B209C370-0D8E-4907-8455-30B689847F78}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BDProjetoRepositorioADO", "BDInicialRepositorio\BDProjetoRepositorioADO.csproj", "{B209C370-0D8E-4907-8455-30B689847F78}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BDProjetoDominio", "BDProjetoDominio\BDProjetoDominio.csproj", "{1028D778-94FF-42E3-8DF2-A11031907715}"
 EndProject
