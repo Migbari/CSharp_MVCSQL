@@ -12,9 +12,10 @@ namespace BDProjetoDominio
         public string Nome { get; set; }
         [DisplayName("Cargo")]
         [Required(ErrorMessage = "Preencha o Cargo do Usuário")]
-        public string Cargo { get; set; }
+        public string Cargo { get; set; }   
         [DisplayName("Data de Cadastro")]
         [Required(ErrorMessage = "Data de Cadastro")]
+        [DisplayFormat (ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime Data { get; set; }
     }
 }
