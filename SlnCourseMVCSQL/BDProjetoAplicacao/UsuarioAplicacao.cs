@@ -1,4 +1,5 @@
 ﻿using BDProjetoDominio;
+using BDProjetoDominio.Interface;
 using BDProjetoRepositorioADO;
 using System.Collections.Generic;
 
@@ -6,24 +7,24 @@ namespace BDProjetoAplicacao
 {
     public class UsuarioAplicacao
     {
-        public UsuarioAplicacao()
+        private readonly IRepositorio<Usuario> repositorio;
+        public UsuarioAplicacao(IRepositorio<Usuario> repos)
         {
-            repositorio = new UsuarioAplicacaoADO();
+            repositorio = repos;
         }
-        private UsuarioAplicacaoADO repositorio;
         public void Salvar(Usuario usuario)
         {
             repositorio.Salvar(usuario);
         }
-        public void Excluir(int id)
+        public void Excluir(Usuario usuario)
         {
-            repositorio.Excluir(id);
+            repositorio.Excluir(usuario);
         }
-        public List<Usuario> ListarTodos()
+        public IEnumerable<Usuario> ListarTodos()
         {
             return repositorio.ListarTodos();
         }
-        public Usuario ListarPorId(int id)
+        public Usuario ListarPorId(string id)
         {
             return repositorio.ListarPorId(id);
         }
