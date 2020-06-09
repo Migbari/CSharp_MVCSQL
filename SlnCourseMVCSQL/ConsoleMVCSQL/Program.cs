@@ -8,9 +8,9 @@ namespace ConsoleMVCSQL
     {
         static void Main(string[] args)
         {
-            var usuarioAplicacao = new UsuarioAplicacao();
-           
-             Console.WriteLine("Digite o nome do usuário: ");
+            var usuarioAplicacao = UsuarioAplicacaoConstrutor.UsuarioAppADO();
+
+            Console.WriteLine("Digite o nome do usuário: ");
              string nome = Console.ReadLine();
 
              Console.WriteLine("Digite o cargo do usuário: ");

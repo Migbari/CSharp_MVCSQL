@@ -9,7 +9,7 @@ using System.Linq;
 namespace BDProjetoRepositorioADO { 
     public class UsuarioAplicacaoADO : IRepositorio<Usuario>
     {
-        private DBConexao  inicial;
+        private DBConexao inicial;
         private void Inserir(Usuario usuario)
         {
             var strQuery = "";
