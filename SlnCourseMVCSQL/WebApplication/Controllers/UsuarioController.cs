@@ -1,5 +1,6 @@
 ﻿using BDProjetoAplicacao;
 using BDProjetoDominio;
+using BDProjetoDominio.Interface;
 using System.Web.Mvc;
 
 namespace WebApplication.Controllers
@@ -9,7 +10,7 @@ namespace WebApplication.Controllers
         // GET: Usuario
         public ActionResult Inicial()
         {
-            var appUsuario = new UsuarioAplicacao();
+            var appUsuario = new UsuarioAplicacaoConstrutor.UsuarioAppADO();
             var listaUsuario = appUsuario.ListarTodos();
             return View(listaUsuario);
         }

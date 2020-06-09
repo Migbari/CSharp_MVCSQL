@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UsuarioAplicacao.cs" />
+    <Compile Include="UsuarioAplicacaoConstrutor.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BDInicialRepositorio\BDProjetoRepositorioADO.csproj">

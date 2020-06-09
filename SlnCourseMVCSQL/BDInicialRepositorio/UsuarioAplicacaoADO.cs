@@ -1,4 +1,5 @@
 ﻿using BDProjetoDominio;
+using BDProjetoDominio.Interface;
 using BDProjetoRepositorio;
 using System;
 using System.Collections.Generic;
@@ -6,7 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 
 namespace BDProjetoRepositorioADO { 
-    public class UsuarioAplicacaoADO
+    public class UsuarioAplicacaoADO : IRepositorio<Usuario>
     {
         private DBConexao  inicial;
         private void Inserir(Usuario usuario)
@@ -45,15 +46,15 @@ namespace BDProjetoRepositorioADO {
                 Inserir(usuario);
             }
         }
-        public void Excluir(int id)
+        public void Excluir(Usuario usuario)
         {
             using (inicial = new DBConexao ())
             {
-                var strQuery = string.Format("DELETE FROM Usuario WHERE Id = {0}", id);
+                var strQuery = string.Format("DELETE FROM Usuario WHERE Id = {0}", usuario.Id);
                 inicial.ExecutaComando(strQuery);
             }
         }
-        public List<Usuario> ListarTodos()
+        public IEnumerable<Usuario> ListarTodos()
         {
             using (inicial = new DBConexao())
             {
@@ -62,7 +63,7 @@ namespace BDProjetoRepositorioADO {
                 return ReaderEmLista(retorno);
             }
         }
-        public Usuario ListarPorId(int id)
+        public Usuario ListarPorId(string id)
         {
             using (inicial = new DBConexao())
             {
