@@ -3,12 +3,8 @@
 @{
     ViewBag.Title = "Inicial";
 }
+<h2>Página do Usuário</h2><br>
 
-<h2>Página Inicial do Usuário</h2>
-
-<p>
-    @Html.ActionLink("Cadastro", "Cadastro")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -23,23 +19,24 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cargo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Data)
-        </td>
-        <td>
-            @Html.ActionLink("Alterar", "Editar", new { id=item.Id }) |
-            @Html.ActionLink("Detalhar", "Detalhes", new { id=item.Id }) |
-            @Html.ActionLink("Deletar", "Excluir", new { id=item.Id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cargo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data)
+            </td>
+            <td>
+                @Html.ActionLink("Alterar", "Editar", new { id = item.Id }) |
+                @Html.ActionLink("Detalhar", "Detalhes", new { id = item.Id }) |
+                @Html.ActionLink("Deletar", "Excluir", new { id = item.Id })
+            </td>
+        </tr>
+    }
 
 </table>
