@@ -3,31 +3,38 @@ using BDProjetoDominio.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BDProjetoRepositorioEF
 {
     public class UsuarioRepositorioEF : IRepositorio<Usuario>
     {
-        void IRepositorio<Usuario>.Excluir(Usuario entidade)
+        private readonly DBConection bd;
+
+        public void Excluir(Usuario entidade)
         {
             throw new NotImplementedException();
         }
 
-        Usuario IRepositorio<Usuario>.ListarPorId(string id)
+        public Usuario ListarPorId(string id)
         {
             throw new NotImplementedException();
         }
 
-        IEnumerable<Usuario> IRepositorio<Usuario>.ListarTodos()
+        public IEnumerable<Usuario> ListarTodos()
         {
             throw new NotImplementedException();
         }
 
-        void IRepositorio<Usuario>.Salvar(Usuario entidade)
+        public void Salvar(Usuario entidade)
         {
-            throw new NotImplementedException();
+            if (entidade.Id > 0)
+            {
+                var usuarioAlterar = bd.usuario.First(x => x.Id == entidade.Id);
+                usuarioAlterar.Nome = entidade.Nome;
+                usuarioAlterar.Cargo = entidade.Cargo;
+                usuarioAlterar.Data = entidade.Data;
+            }
+            bd.SaveChanges();
         }
     }
 }
