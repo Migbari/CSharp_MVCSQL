@@ -9,22 +9,27 @@ namespace BDProjetoRepositorioEF
     public class UsuarioRepositorioEF : IRepositorio<Usuario>
     {
         private readonly DBConection bd;
-
+        public UsuarioRepositorioEF()
+        {
+            bd = new DBConection();
+        }
         public void Excluir(Usuario entidade)
         {
-            throw new NotImplementedException();
+            var usuarioExcluir = bd.usuario.First(x => x.Id == entidade.Id);
+            bd.Set<Usuario>().Remove(usuarioExcluir);
+            bd.SaveChanges();
         }
 
         public Usuario ListarPorId(string id)
         {
-            throw new NotImplementedException();
+            int idInt;
+            Int32.TryParse(id, out idInt);
+            return bd.usuario.First(x => x.Id == idInt);
         }
-
         public IEnumerable<Usuario> ListarTodos()
         {
-            throw new NotImplementedException();
+            return bd.usuario;
         }
-
         public void Salvar(Usuario entidade)
         {
             if (entidade.Id > 0)
@@ -33,6 +38,10 @@ namespace BDProjetoRepositorioEF
                 usuarioAlterar.Nome = entidade.Nome;
                 usuarioAlterar.Cargo = entidade.Cargo;
                 usuarioAlterar.Data = entidade.Data;
+            }
+            else
+            {
+                bd.usuario.Add(entidade);
             }
             bd.SaveChanges();
         }

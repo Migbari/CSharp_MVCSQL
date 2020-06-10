@@ -54,6 +54,10 @@
       <Project>{1028D778-94FF-42E3-8DF2-A11031907715}</Project>
       <Name>BDProjetoDominio</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BDProjetoRepositorioEF\BDProjetoRepositorioEF.csproj">
+      <Project>{36e81f00-fd28-4baf-8793-a082c12f23b5}</Project>
+      <Name>BDProjetoRepositorioEF</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

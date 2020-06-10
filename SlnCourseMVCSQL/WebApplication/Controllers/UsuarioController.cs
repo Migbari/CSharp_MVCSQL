@@ -1,16 +1,20 @@
 ﻿using BDProjetoAplicacao;
 using BDProjetoDominio;
-using BDProjetoDominio.Interface;
 using System.Web.Mvc;
 
 namespace WebApplication.Controllers
 {
     public class UsuarioController : Controller
     {
+        private UsuarioAplicacao appUsuario;
+        public UsuarioController()
+        {
+            appUsuario = UsuarioAplicacaoConstrutor.UsuarioAppEF();
+        }
         // GET: Usuario
         public ActionResult Inicial()
         {
-            var appUsuario = UsuarioAplicacaoConstrutor.UsuarioAppADO();
+            //var appUsuario = UsuarioAplicacaoConstrutor.UsuarioAppADO();
             var listaUsuario = appUsuario.ListarTodos();
             return View(listaUsuario);
         }
@@ -23,7 +27,7 @@ namespace WebApplication.Controllers
         {
             if (ModelState.IsValid)
             {
-                var appUsuario = UsuarioAplicacaoConstrutor.UsuarioAppADO();
+                //var appUsuario = UsuarioAplicacaoConstrutor.UsuarioAppADO();
                 appUsuario.Salvar(usuario);
                 return RedirectToAction("Inicial");
             }
@@ -31,7 +35,7 @@ namespace WebApplication.Controllers
         }
         public ActionResult Editar(string id)
         {
-            var appUsuario = UsuarioAplicacaoConstrutor.UsuarioAppADO();
+            //var appUsuario = UsuarioAplicacaoConstrutor.UsuarioAppADO();
             var usuario = appUsuario.ListarPorId(id);
 
             if (usuario == null)
@@ -45,7 +49,7 @@ namespace WebApplication.Controllers
         {
             if (ModelState.IsValid)
             {
-                var appUsuario = UsuarioAplicacaoConstrutor.UsuarioAppADO();
+                //var appUsuario = UsuarioAplicacaoConstrutor.UsuarioAppADO();
                 appUsuario.Salvar(usuario);
                 return RedirectToAction("Inicial");
             }
@@ -53,7 +57,7 @@ namespace WebApplication.Controllers
         }
         public ActionResult Detalhes(string id)
         {
-            var appUsuario = UsuarioAplicacaoConstrutor.UsuarioAppADO();
+            //var appUsuario = UsuarioAplicacaoConstrutor.UsuarioAppADO();
             var usuario = appUsuario.ListarPorId(id);
 
             if (usuario == null)
@@ -64,7 +68,7 @@ namespace WebApplication.Controllers
         }
         public ActionResult Excluir(string id)
         {
-            var appUsuario = UsuarioAplicacaoConstrutor.UsuarioAppADO();
+            //var appUsuario = UsuarioAplicacaoConstrutor.UsuarioAppADO();
             var usuario = appUsuario.ListarPorId(id);
 
             if (usuario == null)
@@ -76,7 +80,7 @@ namespace WebApplication.Controllers
         [HttpPost, ActionName ("Excluir")]
         public ActionResult ExcluirConfirmado(string id)
         {
-            var appUsuario = UsuarioAplicacaoConstrutor.UsuarioAppADO();
+            //var appUsuario = UsuarioAplicacaoConstrutor.UsuarioAppADO();
             var usuario = appUsuario.ListarPorId(id);
             appUsuario.Excluir(usuario);
             return RedirectToAction("Inicial");

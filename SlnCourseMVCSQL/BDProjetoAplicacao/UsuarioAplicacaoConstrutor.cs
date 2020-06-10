@@ -1,4 +1,5 @@
 ﻿using BDProjetoRepositorioADO;
+using BDProjetoRepositorioEF;
 
 namespace BDProjetoAplicacao
 {
@@ -7,6 +8,10 @@ namespace BDProjetoAplicacao
         public static UsuarioAplicacao UsuarioAppADO()
         {
             return new UsuarioAplicacao(new UsuarioAplicacaoADO());
+        }
+        public static UsuarioAplicacao UsuarioAppEF()
+        {
+            return new UsuarioAplicacao(new UsuarioRepositorioEF());
         }
     }
 }
